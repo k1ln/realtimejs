@@ -1,0 +1,17 @@
+<html>
+<script src="/lib/realtime.js"></script>
+<script>
+   Xvar.createXel('div',['color',"background-color"]);
+   var xdata = new Xvar()
+   xdata["divcolor"] = "blue"
+   xdata["text"] = "This is a sample text!"
+  function changeColorAndText(){
+    xdata["divcolor"] = "red"
+    xdata["text"] = "This is an other text!"
+  }
+</script>
+<body>
+  <button onclick="changeColorAndText()">Change color and Text without interacting with UI</button>
+   <div is="x-div" style-color="xdata['divcolor']" data-link="xdata['text']"></div>"
+</body>
+</html>
