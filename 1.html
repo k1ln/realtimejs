@@ -1,0 +1,335 @@
+<html>
+    <head>
+    <style>
+        table, th, tr,td {
+         border: 1px solid black;
+         min-width: 100px;
+         min-height: 10px;
+        }
+        td{
+            height:40px;
+        }
+    </style>
+  <script src="lib/realtime.js"></script>
+  <script>
+    var x = new Xvar();  
+    var e = new Xvar();
+
+    var xt = Xvar.table(500);
+    var zt = Xvar.table(10);
+    
+    zt[0]["Vorname"] = "Kilian";
+    zt[0]["Name"] = "Hertel";
+    
+    zt[1]["Vorname"] = "Elena";
+    zt[1]["Name"] = "Hertel1";
+    
+    zt[2]["Vorname"] = "Lilli";
+    zt[2]["Name"] = "Hertel2";
+    
+    zt[3]["Vorname"] = "Leonie";
+    zt[3]["Name"] = "Hertel3";
+    
+    zt[4]["Vorname"] = "Eva";
+    zt[4]["Name"] = "Hertel4";
+    
+    zt[5]["Vorname"] = "Barbara";
+    zt[5]["Name"] = "Hertel5";
+    
+    zt[6]["Vorname"] = "Achim";
+    zt[6]["Name"] = "Hertel6";
+    
+    zt[7]["Vorname"] = "Laurenz";
+    zt[7]["Name"] = "Hertel7";
+    
+    zt[8]["Vorname"] = "Alex";
+    zt[8]["Name"] = "Hertel8";
+    
+    zt[9]["Vorname"] = "Terese";
+    zt[9]["Name"] = "Hertel9";
+
+    Xvar.createXel('img',['src','color',"background-color"]);
+    Xvar.createXel('div',['color',"background-color"]);
+    Xvar.createXel('td',['color']);
+    Xvar.createXel('tbody',[]);
+    Xvar.loadTemplates(
+    [
+        {name:'box', url:"temp1.html"},
+        {name:'table', url:"temp2.html"}
+    ]
+    );
+    console.log(1);
+    x['testtemplate'] = "Blah!";
+    x['viewcontroller'] = "box";
+
+    x['props'] = "x";
+
+    x["Vorname"] = "Kilian";
+    x["Nachname"] = "Hertel";
+    x["Adresse"] = "Bernhardstr. 138";
+
+    e["Vorname"] = "Elena";
+    e["Nachname"] = "Hertel";
+    e["Adresse"] = "Unter der Brücke 4711";
+
+
+    x[100] = "Blah!";
+    var ii = 12 
+    while(ii<84)
+    {
+        x[ii] = getRandomColor();
+        ii++;
+    }
+
+    
+    //x[5] = "$: 2*x[0] + 2*x[1] + 2*x[2]";
+    
+    x[11] = "Write something in Div here";
+    x[0] = 5;
+    x[1] = 10;
+    x[4] = 20;
+   
+    x[2] = '$: x[1] + x[4]';
+    x[3] = "$: 2*x[2]";
+    console.log(x[3]);
+    x[1] = 15;
+    console.log(x[3]);
+    x[4] = 10;
+    console.log(x[3]);
+    x[2] = `
+    $:()
+        var a = 3;
+        var b = 2;
+        return a*x[1] + b*x[4];
+    `;
+    console.log(x[3]);
+    x[2] = () => {
+        return x[1] + x[4];
+    };
+    console.log(x[3]);
+
+    function changex3()
+    {
+        x[4] = 20;
+    }
+
+    function changex4(evt)
+    {
+        x[4] = evt.target.value*1;
+    }
+
+    var i = 0;
+    var ii = 0;
+    while(i<5)
+    {
+        ii=0       
+        while(ii<5)
+        {
+            xt[i][ii] = '';
+            ii++;
+        }
+        i++;
+    }
+
+    
+    
+
+    function getRandomColor() {
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+    for (var i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  }
+    x['image'] = "1.jfif";
+    function GoToTable() {x['viewcontroller'] = "table";}
+    function Elena() {x['props'] = "e";}
+  </script>
+  </head>
+  <body>
+      <table>
+          <thead>
+          <tr>
+              <th>
+                Vorname
+              </th>
+              <th>
+                Name
+              </th>
+            </tr>
+            </thead>
+            <tbody is="x-tbody" x-repeat="zt">
+                <tr>
+                    <td is="x-td" data-link="props['Vorname']"></td>
+                    <td is="x-td" data-link="props['Name']"></td>
+                </tr>
+            </tbody>   
+            
+        </table>
+    <x-template x-name="x['viewcontroller']" x-props="x['props']"></x-template>
+    <button onclick="GoToTable()">Gehe zu Table</button>
+    <button onclick="Elena()">Elöena</button>
+    <img is="x-img" src="x['image']"/>
+    <div is="x-div"  data-link="x[100]" style-background-color="x[12]"></div>
+    <div is="x-div"  style-background-color="x[13]"><real-x data-link="x[11]"></real-x></div>
+    <div is="x-div"  style-background-color="x[14]"><real-x data-link="x[11]"></real-x></div>
+    <div is="x-div"  style-background-color="x[15]"><real-x data-link="x[11]"></real-x></div>
+    <div is="x-div"  style-background-color="x[16]"><real-x data-link="x[11]"></real-x></div>
+    <div is="x-div"  style-background-color="x[17]"><real-x data-link="x[11]"></real-x></div>
+    <div is="x-div"  style-background-color="x[18]"><real-x data-link="x[11]"></real-x></div>
+    <div is="x-div"  style-background-color="x[19]"><real-x data-link="x[11]"></real-x></div>
+    <div is="x-div"  style-background-color="x[20]"><real-x data-link="x[11]"></real-x></div>
+    <div is="x-div"  style-background-color="x[21]"><real-x data-link="x[11]"></real-x></div>
+    <div is="x-div"  style-background-color="x[22]"><real-x data-link="x[11]"></real-x></div>
+    <div is="x-div"  style-background-color="x[23]"><real-x data-link="x[11]"></real-x></div>
+    <div is="x-div"  style-background-color="x[24]"><real-x data-link="x[11]"></real-x></div>
+    <div is="x-div"  style-background-color="x[25]"><real-x data-link="x[11]"></real-x></div>
+    <div is="x-div"  style-background-color="x[26]"><real-x data-link="x[11]"></real-x></div>
+    <div is="x-div"  style-background-color="x[27]"><real-x data-link="x[11]"></real-x></div>
+    <div is="x-div"  style-background-color="x[28]"><real-x data-link="x[11]"></real-x></div>
+    <div is="x-div"  style-background-color="x[29]"><real-x data-link="x[11]"></real-x></div>
+    <div is="x-div"  style-background-color="x[30]"><real-x data-link="x[11]"></real-x></div>
+    <div is="x-div"  style-background-color="x[31]"><real-x data-link="x[11]"></real-x></div>
+    <div is="x-div"  style-background-color="x[32]"><real-x data-link="x[11]"></real-x></div>
+    <div is="x-div"  style-background-color="x[33]"><real-x data-link="x[11]"></real-x></div>
+    <div is="x-div"  style-background-color="x[34]"><real-x data-link="x[11]"></real-x></div>
+    <div is="x-div"  style-background-color="x[35]"><real-x data-link="x[11]"></real-x></div>
+    <div is="x-div"  style-background-color="x[36]"><real-x data-link="x[11]"></real-x></div>
+    <div is="x-div"  style-background-color="x[37]"><real-x data-link="x[11]"></real-x></div>
+    <div is="x-div"  style-background-color="x[38]"><real-x data-link="x[11]"></real-x></div>
+    <div is="x-div"  style-background-color="x[39]"><real-x data-link="x[11]"></real-x></div>
+    <div is="x-div"  style-background-color="x[40]"><real-x data-link="x[11]"></real-x></div>
+    <div is="x-div"  style-background-color="x[41]"><real-x data-link="x[11]"></real-x></div>
+    <div is="x-div"  style-background-color="x[42]"><real-x data-link="x[11]"></real-x></div>
+    <div is="x-div"  style-background-color="x[43]"><real-x data-link="x[11]"></real-x></div>
+    <div is="x-div"  style-background-color="x[44]"><real-x data-link="x[11]"></real-x></div>
+    <div is="x-div"  style-background-color="x[45]"><real-x data-link="x[11]"></real-x></div>
+    <div is="x-div"  style-background-color="x[46]"><real-x data-link="x[11]"></real-x></div>
+    <div is="x-div"  style-background-color="x[47]"><real-x data-link="x[11]"></real-x></div>
+    <div is="x-div"  style-background-color="x[48]"><real-x data-link="x[11]"></real-x></div>
+    <div is="x-div"  style-background-color="x[49]"><real-x data-link="x[11]"></real-x></div>
+    <div is="x-div"  style-background-color="x[50]"><real-x data-link="x[11]"></real-x></div>
+    <div is="x-div"  style-background-color="x[51]"><real-x data-link="x[11]"></real-x></div>
+    <div is="x-div"  style-background-color="x[52]"><real-x data-link="x[11]"></real-x></div>
+    <div is="x-div"  style-background-color="x[53]"><real-x data-link="x[11]"></real-x></div>
+    <div is="x-div"  style-background-color="x[54]"><real-x data-link="x[11]"></real-x></div>
+    <div is="x-div"  style-background-color="x[55]"><real-x data-link="x[11]"></real-x></div>
+    <div is="x-div"  style-background-color="x[56]"><real-x data-link="x[11]"></real-x></div>
+    <div is="x-div"  style-background-color="x[57]"><real-x data-link="x[11]"></real-x></div>
+    <div is="x-div"  style-background-color="x[58]"><real-x data-link="x[11]"></real-x></div>
+    <div is="x-div"  style-background-color="x[59]"><real-x data-link="x[11]"></real-x></div>
+    <div is="x-div"  style-background-color="x[60]"><real-x data-link="x[11]"></real-x></div>
+    <div is="x-div"  style-background-color="x[61]"><real-x data-link="x[11]"></real-x></div>
+    <div is="x-div"  style-background-color="x[62]"><real-x data-link="x[11]"></real-x></div>
+    <div is="x-div"  style-background-color="x[63]"><real-x data-link="x[11]"></real-x></div>
+    <div is="x-div"  style-background-color="x[64]"><real-x data-link="x[11]"></real-x></div>
+    <div is="x-div"  style-background-color="x[65]"><real-x data-link="x[11]"></real-x></div>
+    <div is="x-div"  style-background-color="x[66]"><real-x data-link="x[11]"></real-x></div>
+    <div is="x-div"  style-background-color="x[67]"><real-x data-link="x[11]"></real-x></div>
+    <div is="x-div"  style-background-color="x[68]"><real-x data-link="x[11]"></real-x></div>
+    <div is="x-div"  style-background-color="x[69]"><real-x data-link="x[11]"></real-x></div>
+    <div is="x-div"  style-background-color="x[70]"><real-x data-link="x[11]"></real-x></div>
+    <div is="x-div"  style-background-color="x[71]"><real-x data-link="x[11]"></real-x></div>
+    <div is="x-div"  style-background-color="x[72]"><real-x data-link="x[11]"></real-x></div>
+    <div is="x-div"  style-background-color="x[73]"><real-x data-link="x[11]"></real-x></div>
+    <div is="x-div"  style-background-color="x[74]"><real-x data-link="x[11]"></real-x></div>
+    <div is="x-div"  style-background-color="x[75]"><real-x data-link="x[11]"></real-x></div>
+    <div is="x-div"  style-background-color="x[76]"><real-x data-link="x[11]"></real-x></div>
+    <div is="x-div"  style-background-color="x[77]"><real-x data-link="x[11]"></real-x></div>
+    <div is="x-div"  style-background-color="x[78]"><real-x data-link="x[11]"></real-x></div>
+    <div is="x-div"  style-background-color="x[79]"><real-x data-link="x[11]"></real-x></div>
+    <div is="x-div"  style-background-color="x[80]"><real-x data-link="x[11]"></real-x></div>
+    <div is="x-div"  style-background-color="x[81]"><real-x data-link="x[11]"></real-x></div>
+    <div is="x-div"  style-background-color="x[82]"><real-x data-link="x[11]"></real-x></div>
+    <div is="x-div"  style-background-color="x[83]"><real-x data-link="x[11]"></real-x></div>
+    <BR>
+    <real-x data-link="x[3]"></real-x>
+    <button onclick="changex3()">Test</button>
+    <input type="text" onkeyup="changex4(event);"/>
+
+    <h1>Excel like Test:</h1>
+    <table>
+        <tr>
+            <td>
+                <input-x data-link="xt[0][0]"></input-x>
+            </td>
+            <td>
+                <input-x data-link="xt[0][1]"></input-x>
+            </td>
+            <td>
+                <input-x data-link="xt[0][2]"></input-x>
+            </td>
+            <td>
+                <input-x data-link="xt[0][3]"></input-x>
+            </td>
+            <td>
+                <input-x data-link="xt[0][4]"></input-x>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input-x data-link="xt[1][0]"></input-x>
+            </td>
+            <td>
+                <input-x data-link="xt[1][1]"></input-x>
+            </td>
+            <td>
+                <input-x data-link="xt[1][2]"></input-x>
+            </td>
+            <td>
+                <input-x data-link="xt[1][3]"></input-x>
+            </td>
+            <td>
+                <input-x data-link="xt[1][4]"></input-x>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input-x data-link="xt[2][0]"></input-x>
+            </td>
+            <td>
+                <input-x data-link="xt[2][1]"></input-x>
+            </td>
+            <td>
+                <input-x data-link="xt[2][2]"></input-x>
+            </td>
+            <td>
+                <input-x data-link="xt[2][3]"></input-x>
+            </td>
+            <td>
+                <input-x data-link="xt[2][4]"></input-x>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input-x data-link="xt[3][0]"></input-x>
+            </td>
+            <td>
+                <input-x data-link="xt[3][1]"></input-x>
+            </td>
+            <td>
+                <input-x data-link="xt[3][2]"></input-x>
+            </td>
+            <td>
+                <input-x data-link="xt[3][3]"></input-x>
+            </td>
+            <td>
+                <input-x data-link="xt[3][4]"></input-x>
+            </td>
+        </tr>
+    </table>
+</body>
+<script>
+    var id = 12;
+    //x[100] = 'Blah!';
+    
+    function setter()
+    {
+        //x[Math.floor(Math.random()*72)+12] = getRandomColor();
+        x[Math.floor(Math.random()*72)+12] = getRandomColor();
+        setTimeout(function(){ setter() }, 1);   
+    }
+    //setter();
+</script>
+</html>

@@ -1,0 +1,43 @@
+<html>
+<script src="lib/realtime.js"></script>
+<script src="js/bootstrap.js"></script>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/table.css">
+<script>
+  Xvar.loadTemplates(
+    [
+      {name:'blank', url:"blank.html"},
+      {name:'login', url:"login.html"},
+      {name:'main', url:"main.html"}
+    ]
+  );
+  Xvar.createXel('img',['src','color',"background-color"]);
+  Xvar.createXel('div',['color',"background-color"]);
+  Xvar.createXel('td',['color',"background-color"]);
+  Xvar.createXel('span',['color']);
+  Xvar.createXel('tbody',[]);
+  Xvar.createXel('input',[]);
+  
+  site = new Xvar();
+  site["props"] = new Xvar();
+  site["loggedin"] = false;
+  site["view"] = "blank";
+  site["User"] = '';
+  site["Password"] = '';
+  if(site["loggedin"] == false)
+  {
+    site["view"] = "login";
+  }
+  else
+  {
+    site["view"] = "main";
+  }
+  var x = new Xvar();
+  x["green"] = "green";
+</script>
+<body>
+  <div is="x-div" style-color="x['green']">Test Der Farbe</div>
+<x-template x-name="site['view']" x-props="x['props']"></x-template>
+</body>
+
+</html>

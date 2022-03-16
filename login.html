@@ -1,0 +1,24 @@
+  <script>
+    function login()
+    {
+      site["view"] = 'main';
+      console.log('User');
+      console.log(site['User']);
+      return true;
+    }
+  </script>
+  <div>
+     Name:<input 
+            is="x-input" 
+            onchange="site['User']=this.value;" 
+            type="text"
+          />
+  </div>
+  <div>
+    Password:<input 
+              is="x-input" 
+              onchange="site['User']=this.value;" 
+              type="text"
+            />
+  </div>
+  <button onclick="login()">PUSH</button>
