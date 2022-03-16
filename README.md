@@ -72,7 +72,7 @@ Xvar.loadTemplates(
 
 you don't need to write html in your html files. 
 
-The complete code to use temlates can be seen in index.html
+The complete code to use templates can be seen in index.html
 
 If you link the template to an Xvar you can change the viewcontroller just by changing the xvar data. 
 
