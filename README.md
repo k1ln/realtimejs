@@ -1,5 +1,5 @@
 # realtime.js
-Realtime.js is a fast frontend framework based on Web-Components. It has a lot of features to simplify your way of live as a vanillajs developer. The framework is programmed in szch a way, that you can edit it yourself if you need additional features.
+Realtime.js is a fast frontend framework based on Web-Components and Proxies. It has a lot of features to simplify your way of live as a vanillajs developer. The framework is programmed in szch a way, that you can edit it yourself if you need additional features.
 
 Depending on which clever Web-Components you need the framework renders these components from the Start. 
 
