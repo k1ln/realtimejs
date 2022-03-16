@@ -8,7 +8,7 @@ The framework introduces two different technologies.
 - Web Components => f.e. x-div
 
 If you combine these two technologies you don't  need to care about refreshing UI anymore if everything has been set. 
-All you need to do is change Data and the GUI manipulating will occure itself, without any additional react render overhead you cannot debug. 
+All you need to do is change Data and the GUI manipulating will occure itself, without any additional react render overhead you cannot debug.
 
 You need a webserver to see the files working. So either you move the extracted zip to an apache or you build the added webserver.go. 
 ```
@@ -107,3 +107,31 @@ To build this (sorry "UGLY") table just took me 4 hours with all functions from 
 Using React with learning a new library for clever tables which then doesn't have that one feature I need... You see where I'm getting at. 
 
 You just need Proxies and WebComponents to render everything in your app yourself!
+
+## Additional functions
+  If you open 1.html you can see additional functions in action. 
+  You can link different Xvar-attributes with a function like in svelte but it's in relatime => no prerender: 
+  ```
+    var x = new Xvar();
+    x[1] = 10;
+    x[4] = 20;
+    x[2] = '$: x[1] + x[4]';
+    x[3] = "$: 2*x[2]";
+    console.log(x[3]);
+    x[1] = 15;
+    console.log(x[3]);
+    x[4] = 10;
+    console.log(x[3]);
+    x[2] = `
+    $:()
+        var a = 3;
+        var b = 2;
+        return a*x[1] + b*x[4];
+    `;
+    console.log(x[2]);
+  ```
+  
+  If one of these functions gets attached to a x-element UI will refresh automatically if any of the data inside these functions changes. 
+  Further below you can see an excel like example programmed with this technology.
+  
+  
