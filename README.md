@@ -17,3 +17,34 @@ Everything start with the Xvar class.
 ```
   Xvar.createXel('div',['color',"background-color"]);
 ```
+
+This tells the class to create a webComponent named "x-div" on which you can change the content with data-link or the style with style-color f.e.. 
+If you give the style-attributes an Xvar data Type you just need to change data to manipulate UI. The data and the element listens on its own changes. 
+To make this happen we create a Xvar data type. 
+
+```
+  var xdata = new Xvar()
+```
+
+xdata is now an Object/Array which you can change and link with the custom element attributes. 
+
+```
+  xdata["divcolor"] = "blue"
+  xdata["text"] = "This is a sample text!"
+  
+```
+
+now you link the xdata["divcolor"] to the custom Element. 
+
+```
+  <div is="x-div" style-color="xdata['divcolor']" data-link="xdata['text']"></div>"
+```
+
+if you just change the data like: 
+
+```
+  xdata["divcolor"] = "red"
+  xdata["text"] = "This is an other text!"
+```
+
+The UI gets updated accordingly. 
