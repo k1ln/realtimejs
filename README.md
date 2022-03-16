@@ -11,7 +11,7 @@ If you combine these two technologies you don't  need to care about refreshing U
 All you need to do is change Data and the GUI manipulating will occure itself, without any additional react render overhead you cannot debug.
 
 You need a webserver to see the files working. So either you move the extracted zip to an apache or you build the added webserver.go. 
-```
+```javascript
   go build webserver.go
 ``` 
 If you start the executable (doesn't matter which OS) you cann access the files with => http://localhost:1338
@@ -20,7 +20,7 @@ To use this framework you can just import the js. file.
 Afterwards you need to tell the programm which Components you want to have clever and on which attributes it should listen. 
 Everything start with the Xvar class. 
 
-```
+```javascript
   Xvar.createXel('div',['color',"background-color"]);
 ```
 
@@ -28,27 +28,26 @@ This tells the class to create a webComponent named "x-div" on which you can cha
 If you give the style-attributes an Xvar data Type you just need to change data to manipulate UI. The data and the element listens on its own changes. 
 To make this happen we create a Xvar data type. 
 
-```
+```javascript
   var xdata = new Xvar()
 ```
 
 xdata is now an Object/Array which you can change and link with the custom element attributes. 
 
-```
+```javascript
   xdata["divcolor"] = "blue"
   xdata["text"] = "This is a sample text!"
-  
 ```
 
 now you link the xdata["divcolor"] to the custom Element. 
 
-```
+```javascript
   <div is="x-div" style-color="xdata['divcolor']" data-link="xdata['text']"></div>"
 ```
 
 if you just change the data like: 
 
-```
+```javascript
   xdata["divcolor"] = "red"
   xdata["text"] = "This is an other text!"
 ```
@@ -60,7 +59,7 @@ The UI gets updated accordingly.
 But what would a real framework be without templates! So we use x-template as a view controller. 
 Before you can use templates you need to preload them in javascript with: 
 
-```
+```javascript
 Xvar.loadTemplates(
     [
       {name:'blank', url:"blank.html"},
@@ -76,14 +75,14 @@ The complete code to use templates can be seen in index.html
 
 If you link the template to an Xvar you can change the viewcontroller just by changing the xvar data. 
 
-```
+```javascript
   <x-template x-name="site['view']" x-props="x['props']"></x-template>
 ```
 
 you can add props which will be changed if you write props in corresponding element attributes. 
 The same with x-repeat which you can use on each x-element. 
 
-```
+```javascript
   <tbody id="table1" is="x-tbody" x-repeat="datax">
           <tr>
               <td> <div is="x-div" style-color="props['color']" style-background-color="props['color']">Test bg Color</div></td>
@@ -98,7 +97,7 @@ Just login with any Username and the main.html file will be rendered.
 
 Filtering and handling data gets much more convenient, when you don't need to hassle with UI so much. 
 Just change the data and load the new data in the attribute: 
-```
+```javascript
   document.getElementById("table1").setAttribute("x-repeat","tabledata");
 ```
 and everything will be rendered accordingly. 
@@ -111,7 +110,7 @@ You just need Proxies and WebComponents to render everything in your app yoursel
 ## Additional functions
   If you open 1.html you can see additional functions in action. 
   You can link different Xvar-attributes with a function like in svelte but it's in relatime => no prerender: 
-  ```
+  ```javascript
     var x = new Xvar();
     x[1] = 10;
     x[4] = 20;
