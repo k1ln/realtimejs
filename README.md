@@ -14,6 +14,6 @@ To use this framework you can just import the js. file.
 Afterwards you need to tell the programm which Components you want to have clever and on which attributes it should listen. 
 Everything start with the Xvar class. 
 
-<
+```
   Xvar.createXel('div',['color',"background-color"]);
- >
+```
