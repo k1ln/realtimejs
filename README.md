@@ -49,7 +49,7 @@ if you just change the data like:
 
 ```javascript
   xdata["divcolor"] = "red"
-  xdata["text"] = "This is an other text!"
+  xdata["text"] = "This is another text!"
 ```
 
 The UI gets updated accordingly. 
