@@ -3,8 +3,8 @@ Realtime.js is a fast frontend framework based on Web-Components and Proxies. It
 
 Depending on which clever Web-Components you need the framework renders these components from the Start. 
 
-The framework introduces two different technologies. 
-- These are proxies => Xvar 
+The framework introduces two different technologies: 
+- Proxies => Xvar 
 - Web Components => f.e. x-div
 
 If you combine these two technologies you don't  need to care about refreshing UI anymore if everything has been set. 
