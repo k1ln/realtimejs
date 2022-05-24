@@ -4,6 +4,7 @@
       site["view"] = 'main';
       console.log('User');
       console.log(site['User']);
+      console.log(site['Password']);
       return true;
     }
   </script>
@@ -17,7 +18,7 @@
   <div>
     Password:<input 
               is="x-input" 
-              onchange="site['User']=this.value;" 
+              onchange="site['Password']=this.value;" 
               type="text"
             />
   </div>
