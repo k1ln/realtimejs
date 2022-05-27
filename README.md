@@ -109,7 +109,7 @@ You just need Proxies and WebComponents to render everything in your app yoursel
 
 ## Additional functions
   If you open 1.html you can see additional functions in action. 
-  You can link different Xvar-attributes with a function like in svelte but it's in relatime => no prerender: 
+  You can link different Xvar-attributes with a function like in svelte but it's in realtime => no prerender: 
   ```javascript
     var x = new Xvar();
     x[1] = 10;
