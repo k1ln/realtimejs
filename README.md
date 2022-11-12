@@ -71,6 +71,22 @@ Xvar.loadTemplates(
 
 you don't need to write html in your html files. 
 
+Another feature is to add a template library.
+The initiial load time will be longer, but the loading time after the loading time will be reduce. 
+
+If you want work with template library reliably, you have to add propperties for the component you want to use.
+which could look like this: 
+
+```Javascript
+      var buttonprops = {};
+      buttonprops.text = "the button";
+      buttonprops.color = "red";
+      buttonprops.bgcolor = "black";
+      buttonprops.clickfunction = function () {console.log("Button Click!")};
+```
+
+Adding the propperties for the fitting component, give the possibillity to design and add a funtion for the existing component.
+
 The complete code to use templates can be seen in index.html
 
 If you link the template to an Xvar you can change the viewcontroller just by changing the xvar data. 
@@ -79,7 +95,7 @@ If you link the template to an Xvar you can change the viewcontroller just by ch
   <x-template x-name="site['view']" x-props="x['props']"></x-template>
 ```
 
-you can add props which will be changed if you write props in corresponding element attributes. 
+You can add props which will be changed if you write props in corresponding element attributes. 
 The same with x-repeat which you can use on each x-element. 
 
 ```javascript
