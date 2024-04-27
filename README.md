@@ -7,7 +7,7 @@ By synergizing these technologies, Realtime.js revolutionizes UI development. Th
 
 ![realtimeJS](https://github.com/k1ln/realtimejs/assets/11948913/ca93de5e-47da-4bab-93a7-a0d19c42d034)
 
-##Setup
+## Setup
 
 You need a webserver to see the files working. So either you move the extracted zip to an apache or you build the added webserver.go. 
 ```javascript
@@ -44,7 +44,7 @@ now you link the xdata["divcolor"] to the custom Element.
   <div is="x-div" style-color="xdata['divcolor']" data-link="xdata['text']"></div>"
 ```
 
-##Usage
+## Usage
 
 if you just change the data like: 
 
@@ -72,7 +72,7 @@ Xvar.loadTemplates(
 
 you don't need to write html in your html files. 
 
-##Templates
+## Templates
 
 Another feature is to add a template library.
 The initiial load time will be longer, but the loading time after the loading time will be reduce. 
