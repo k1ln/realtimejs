@@ -1,15 +1,13 @@
-# realtime.js
-Realtime.js is a fast frontend framework based on Web-Components and Proxies.
+# REALTIME.js
+Realtime.js introduces two pivotal technologies:
+
+Proxies (Xvar): This feature enables seamless data manipulation.
+Web Components (e.g., x-div): These components offer extensive customization possibilities.
+By synergizing these technologies, Realtime.js revolutionizes UI development. The combination of Proxies and Web Components alleviates the burden of manual UI refreshing, empowering developers to focus on data management. Consequently, UI adjustments occur effortlessly, eliminating the need for debugging common with traditional approaches like React render overhead.
+
 ![realtimeJS](https://github.com/k1ln/realtimejs/assets/11948913/ca93de5e-47da-4bab-93a7-a0d19c42d034)
 
-Depending on which smart Web-Component you need the framework renders these components from the start. 
-
-The framework introduces two different technologies: 
-- Proxies => Xvar 
-- Web Components => f.e. x-div
-
-If you combine these two technologies you don't  need to care about refreshing UI anymore if everything has been set. 
-All you need to do is change Data and the GUI manipulating will occure itself, without any additional react render overhead you cannot debug.
+##Setup
 
 You need a webserver to see the files working. So either you move the extracted zip to an apache or you build the added webserver.go. 
 ```javascript
@@ -46,6 +44,8 @@ now you link the xdata["divcolor"] to the custom Element.
   <div is="x-div" style-color="xdata['divcolor']" data-link="xdata['text']"></div>"
 ```
 
+##Usage
+
 if you just change the data like: 
 
 ```javascript
@@ -71,6 +71,8 @@ Xvar.loadTemplates(
 ```
 
 you don't need to write html in your html files. 
+
+##Templates
 
 Another feature is to add a template library.
 The initiial load time will be longer, but the loading time after the loading time will be reduce. 
@@ -124,7 +126,7 @@ Using React with learning a new library for clever tables which then doesn't hav
 
 You just need Proxies and WebComponents to render everything in your app yourself!
 
-## Additional functions
+## Svelte like Realtime
   If you open 1.html you can see additional functions in action. 
   You can link different Xvar-attributes with a function like in svelte but it's in realtime => no prerender: 
   ```javascript
