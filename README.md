@@ -2,7 +2,7 @@
 Realtime.js is a fast frontend framework based on Web-Components and Proxies.
 ![realtimeJS](https://github.com/k1ln/realtimejs/assets/11948913/ca93de5e-47da-4bab-93a7-a0d19c42d034)
 
-Depending on which clever Web-Components you need the framework renders these components from the Start. 
+Depending on which smart Web-Component you need the framework renders these components from the start. 
 
 The framework introduces two different technologies: 
 - Proxies => Xvar 
